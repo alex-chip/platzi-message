@@ -26,7 +26,7 @@ function getMessages (filterUser) {
   })
 }
 
-function updateMessage(id, message) {
+function updateMessage (id, message) {
   return new Promise(async (resolve, reject) => {
     if (!id || !message) {
       reject('Invalid Data')
@@ -37,9 +37,9 @@ function updateMessage(id, message) {
   })
 }
 
-function deleteMessage(id) {
+function deleteMessage (id) {
   return new Promise((resolve, reject) => {
-    if(!id) {
+    if (!id) {
       reject('Id invalido')
       return false
     }

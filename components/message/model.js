@@ -6,9 +6,9 @@ const mySchema = new Schema({
   user: String,
   message: {
     type: String,
-    required: true,
+    required: true
   },
-  date: Date,
+  date: Date
 })
 
 const model = mongoose.model('Message', mySchema)

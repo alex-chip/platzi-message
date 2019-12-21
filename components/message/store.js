@@ -9,14 +9,14 @@ function addMessage (message) {
 
 async function getMessages (filterUser) {
   let filter = {}
-  if(filterUser !== null) {
-    filter = {user: filterUser}
+  if (filterUser !== null) {
+    filter = { user: filterUser }
   }
   const messages = await Model.find(filter)
   return messages
 }
 
-async function updateText(id, message) {
+async function updateText (id, message) {
   const foundMessage = await Model.findOne({
     _id: id
   })
@@ -25,7 +25,7 @@ async function updateText(id, message) {
   return newMessage
 }
 
-async function removeMessage(id ) {
+async function removeMessage (id) {
   return Model.deleteOne({
     _id: id
   })

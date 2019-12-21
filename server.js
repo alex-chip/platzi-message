@@ -5,7 +5,7 @@ const db = require('./db')
 const app = express()
 const router = require('./network/router')
 
-db('mongodb://<user>:<password>@ds259089.mlab.com:59089/<myDB>')
+db('mongodb://alexchip:platzitelegram32@ds259089.mlab.com:59089/platzi_node_telegram')
 
 // Middelwares
 app
