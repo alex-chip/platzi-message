@@ -1,7 +1,12 @@
 const express = require('express')
+const multer = require('multer')
 const response = require('../../network/response')
 const controller = require('./controller')
 const router = express.Router()
+
+const upload = multer({
+  dest: 'public/files/'
+})
 
 router
   .get('/', (req, res) => {
@@ -14,9 +19,8 @@ router
         response.error(req, res, 'Unexpeced Error', 500, e)
       })
   })
-  .post('/', (req, res) => {
-    // console.log(req.body)
-    controller.addMessage(req.body.chat, req.body.user, req.body.message)
+  .post('/', upload.single('file'), (req, res) => {
+    controller.addMessage(req.body.chat, req.body.user, req.body.message, req.file)
       .then((fullMessage) => {
         response.success(req, res, fullMessage, 201)
       })
